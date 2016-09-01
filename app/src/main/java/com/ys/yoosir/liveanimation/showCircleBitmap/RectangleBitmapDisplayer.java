@@ -31,6 +31,7 @@ import com.nostra13.universalimageloader.core.assist.LoadedFrom;
 import com.nostra13.universalimageloader.core.display.BitmapDisplayer;
 import com.nostra13.universalimageloader.core.imageaware.ImageAware;
 import com.nostra13.universalimageloader.core.imageaware.ImageViewAware;
+import com.nostra13.universalimageloader.utils.L;
 
 /**
  * Can display bitmap cropped by a circle. This implementation works only with ImageViews wrapped
@@ -96,7 +97,6 @@ public class RectangleBitmapDisplayer implements BitmapDisplayer {
 
 			bitmapShader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
 			mBitmapRect = new RectF(0, 0, bitmap.getWidth(), bitmap.getHeight());
-			mRoundRect = new RectF(0, 0, radius * 2, radius * 2);
 
 			paint = new Paint();
 			paint.setAntiAlias(true);
@@ -116,18 +116,22 @@ public class RectangleBitmapDisplayer implements BitmapDisplayer {
 			this.strokeWidth = strokeWidth;
 			strokeRadius = radius - strokeWidth / 2;
 
-			mStrokeRoundRect = new RectF(0,0,strokeRadius * 2, strokeRadius * 2);
+			mRoundRect = new RectF(0, 0, strokeRadius * 2, strokeRadius * 2);
+			mStrokeRoundRect = new RectF(0,0,radius * 2, radius * 2);
 			this.padRadius = padRadius;
+			L.i("RectangleBitmapDisplayer","RectangleDrawable --  mRoundRect="+mRoundRect+"--mStrokeRoundRect=" + mStrokeRoundRect);
 		}
 
 		@Override
 		protected void onBoundsChange(Rect bounds) {
 			super.onBoundsChange(bounds);
+
 			mRect.set(0, 0, bounds.width(), bounds.height());
 			radius = Math.min(bounds.width(), bounds.height()) / 2;
 			strokeRadius = radius - strokeWidth / 2;
-			mRoundRect = new RectF(0, 0, radius * 2, radius * 2);
-
+			mRoundRect = new RectF(0, 0, strokeRadius * 2, strokeRadius * 2);
+			mStrokeRoundRect = new RectF(0,0,radius * 2, radius * 2);
+			L.i("RectangleBitmapDisplayer","onBoundsChange -- mRoundRect="+mRoundRect+"--mStrokeRoundRect=" + mStrokeRoundRect);
 			// Resize the original bitmap to fit the new bound
 			Matrix shaderMatrix = new Matrix();
 			shaderMatrix.setRectToRect(mBitmapRect, mRect, Matrix.ScaleToFit.FILL);
@@ -136,6 +140,7 @@ public class RectangleBitmapDisplayer implements BitmapDisplayer {
 
 		@Override
 		public void draw(Canvas canvas) {
+			L.i("RectangleBitmapDisplayer","draw");
 			canvas.drawRoundRect(mRoundRect, padRadius, padRadius, paint);
 			if (strokePaint != null) {
 				canvas.drawRoundRect(mStrokeRoundRect, padRadius, padRadius, strokePaint);

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.ys.yoosir.liveanimation.ui.ShowBitmapActivity;
 import com.ys.yoosir.liveanimation.ui.ShowGiftActivity;
 import com.ys.yoosir.liveanimation.ui.ShowStarActivity;
 
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         findViewById(R.id.btn_star_animation).setOnClickListener(this);
         findViewById(R.id.btn_gift_animation).setOnClickListener(this);
+        findViewById(R.id.btn_show_bitmap).setOnClickListener(this);
     }
 
     @Override
@@ -26,6 +28,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_gift_animation:
                 startActivity(new Intent(this, ShowGiftActivity.class));
+                break;
+            case R.id.btn_show_bitmap:
+                startActivity(new Intent(this, ShowBitmapActivity.class));
                 break;
         }
     }
