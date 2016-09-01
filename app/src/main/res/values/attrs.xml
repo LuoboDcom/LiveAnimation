@@ -1,0 +1,38 @@
+<resources>
+
+    <!-- Declare custom theme attributes that allow changing which styles are
+         used for button bars depending on the API level.
+         ?android:attr/buttonBarStyle is new as of API 11 so this is
+         necessary to support previous API levels. -->
+    <declare-styleable name="ButtonBarContainerTheme">
+        <attr name="metaButtonBarStyle" format="reference" />
+        <attr name="metaButtonBarButtonStyle" format="reference" />
+    </declare-styleable>
+
+    <!-- 飘星自定义属性 -->
+    <declare-styleable name="HeartLayout">
+        <attr name="initX" format="dimension" />
+        <attr name="initY" format="dimension" />
+        <attr name="xRand" format="dimension" />
+        <attr name="animLengthRand" format="dimension" />
+        <attr name="xPointFactor" format="dimension" />
+        <attr name="animLength" format="dimension" />
+        <attr name="heart_width" format="dimension" />
+        <attr name="heart_height" format="dimension" />
+        <attr name="bezierFactor" format="integer" />
+        <attr name="anim_duration" format="integer" />
+    </declare-styleable>
+
+    <!-- 礼物效果自定义属性 -->
+    <declare-styleable name="GiftLayout">
+        <attr name="gift_initX" format="dimension" />
+        <attr name="gift_initY" format="dimension" />
+        <attr name="gift_animLengthRand" format="dimension" />
+        <attr name="gift_xPointFactor" format="dimension" />
+        <attr name="gift_animLength" format="dimension" />
+        <attr name="gift_width" format="dimension" />
+        <attr name="gift_height" format="dimension" />
+        <attr name="gift_anim_duration" format="integer" />
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">LiveAnimation</string>
+
+    <string name="title_activity_show_gift">ShowGiftActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="gift_count_text">x %1$d</string>
+</resources>
