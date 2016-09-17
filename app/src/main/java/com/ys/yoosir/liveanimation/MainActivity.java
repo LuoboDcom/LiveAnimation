@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.ys.yoosir.liveanimation.ui.ShowBitmapActivity;
 import com.ys.yoosir.liveanimation.ui.ShowGiftActivity;
+import com.ys.yoosir.liveanimation.ui.ShowPropertyAnimatorActivity;
 import com.ys.yoosir.liveanimation.ui.ShowStarActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        findViewById(R.id.btn_property_animator).setOnClickListener(this);
         findViewById(R.id.btn_star_animation).setOnClickListener(this);
         findViewById(R.id.btn_gift_animation).setOnClickListener(this);
         findViewById(R.id.btn_show_bitmap).setOnClickListener(this);
@@ -23,6 +25,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()){
+            case R.id.btn_property_animator:
+                startActivity(new Intent(this,ShowPropertyAnimatorActivity.class));
+                break;
             case R.id.btn_star_animation:
                 startActivity(new Intent(this, ShowStarActivity.class));
                 break;

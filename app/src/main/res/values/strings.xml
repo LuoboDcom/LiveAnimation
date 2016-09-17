@@ -6,4 +6,7 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
     <string name="gift_count_text">x %1$d</string>
+    <string name="value_animator">Value \n Animator</string>
+    <string name="object_animator">Object \n Animator</string>
+    <string name="animator_set">AnimatorSet \n </string>
 </resources>
