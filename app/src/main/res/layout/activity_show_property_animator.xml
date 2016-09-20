@@ -41,6 +41,36 @@
     </LinearLayout>
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_custom_evaluator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/value_animator"
+            />
+
+        <Button
+            android:id="@+id/btn_custom_interpolator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/object_animator"
+            />
+
+        <Button
+            android:id="@+id/btn_xml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/animator_set"
+            />
+
+    </LinearLayout>
+
+
     <ImageView
         android:id="@+id/show_img_iv"
         android:layout_width="wrap_content"
